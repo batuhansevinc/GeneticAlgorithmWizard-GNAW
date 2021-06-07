@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'C:/Users/Miray/PycharmProjects/pythonProject/untitled.ui'
-#
-# Created by: PyQt5 UI code generator 5.6
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
@@ -35,9 +27,9 @@ class Ui_MainWindow(object):
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(310, 460, 61, 20))
         self.lineEdit_3.setObjectName("lineEdit_3")
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(310, 500, 61, 20))
-        self.lineEdit_4.setObjectName("lineEdit_4")
+        self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox.setGeometry(QtCore.QRect(310, 500, 61, 20))
+        self.checkBox.setObjectName("checkBox")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(450, 450, 160, 71))
         self.pushButton.setObjectName("pushButton")
@@ -46,9 +38,6 @@ class Ui_MainWindow(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.radioButton_7 = QtWidgets.QRadioButton(self.frame)
-        self.radioButton_7.setGeometry(QtCore.QRect(20, 130, 101, 18))
-        self.radioButton_7.setObjectName("radioButton_7")
         self.label_2 = QtWidgets.QLabel(self.frame)
         self.label_2.setGeometry(QtCore.QRect(20, 10, 101, 21))
         font = QtGui.QFont()
@@ -60,7 +49,7 @@ class Ui_MainWindow(object):
         self.radioButton_4.setGeometry(QtCore.QRect(20, 70, 83, 18))
         self.radioButton_4.setObjectName("radioButton_4")
         self.radioButton_5 = QtWidgets.QRadioButton(self.frame)
-        self.radioButton_5.setGeometry(QtCore.QRect(20, 40, 83, 18))
+        self.radioButton_5.setGeometry(QtCore.QRect(20, 40, 110, 18))
         self.radioButton_5.setObjectName("radioButton_5")
         self.radioButton_6 = QtWidgets.QRadioButton(self.frame)
         self.radioButton_6.setGeometry(QtCore.QRect(20, 100, 83, 18))
@@ -116,7 +105,10 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName("label_8")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(650, 450, 160, 71))
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_2.setObjectName("pushButton_3")
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(110, -4, 35, 30))
+        self.pushButton_3.setObjectName("pushButton_3")
         self.label_9 = QtWidgets.QLabel(self.centralwidget)
         self.label_9.setGeometry(QtCore.QRect(458, 520, 330, 21))
         font = QtGui.QFont()
@@ -156,13 +148,11 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuMenu.menuAction())
         self.menubar.addAction(self.menuAdvanced.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.radioButton_5, self.radioButton_4)
         MainWindow.setTabOrder(self.radioButton_4, self.radioButton_6)
-        MainWindow.setTabOrder(self.radioButton_6, self.radioButton_7)
-        MainWindow.setTabOrder(self.radioButton_7, self.radioButton)
+        MainWindow.setTabOrder(self.radioButton_6, self.radioButton)
         MainWindow.setTabOrder(self.radioButton, self.radioButton_2)
         MainWindow.setTabOrder(self.radioButton_2, self.radioButton_3)
         MainWindow.setTabOrder(self.radioButton_3, self.radioButton_9)
@@ -171,21 +161,18 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.radioButton_10, self.lineEdit)
         MainWindow.setTabOrder(self.lineEdit, self.lineEdit_2)
         MainWindow.setTabOrder(self.lineEdit_2, self.lineEdit_3)
-        MainWindow.setTabOrder(self.lineEdit_3, self.lineEdit_4)
-        MainWindow.setTabOrder(self.lineEdit_4, self.pushButton)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Genetic Algorithm"))
         self.label_4.setText(_translate("MainWindow", "Population Limit :"))
         self.label_5.setText(_translate("MainWindow", "Generation Limit : "))
         self.label_6.setText(_translate("MainWindow", "Fitness Limit :"))
-        self.label_7.setText(_translate("MainWindow", "Weight Limit :"))
+        self.label_7.setText(_translate("MainWindow", "Elitism"))
         self.pushButton.setText(_translate("MainWindow", "Save Fitness Code"))
-        self.radioButton_7.setText(_translate("MainWindow", "Tournament"))
         self.label_2.setText(_translate("MainWindow", "Selection Type"))
         self.radioButton_4.setText(_translate("MainWindow", "Roulette"))
-        self.radioButton_5.setText(_translate("MainWindow", "Elitism"))
+        self.radioButton_5.setText(_translate("MainWindow", "Tournament"))
         self.radioButton_6.setText(_translate("MainWindow", "Rank"))
         self.radioButton_3.setText(_translate("MainWindow", "Uniform"))
         self.radioButton_2.setText(_translate("MainWindow", "Multi Point"))
@@ -197,9 +184,9 @@ class Ui_MainWindow(object):
         self.radioButton_9.setText(_translate("MainWindow", "Random"))
         self.label_8.setText(_translate("MainWindow", "Fitness Code:"))
         self.pushButton_2.setText(_translate("MainWindow", "Start"))
+        self.pushButton_3.setText(_translate("MainWindow", "⟳"))
         self.label_9.setText(_translate("MainWindow", "You must save your Fitness code before you START"))
         self.label_10.setText(_translate("MainWindow", "Output:"))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu"))
         self.menuAdvanced.setTitle(_translate("MainWindow", "Advanced"))
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
-

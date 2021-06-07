@@ -2,18 +2,6 @@ import random
 def generate_individual():
   return [random.randint(0,6) for i in range(0, 243)]
 
-#def generate_board():
-  #return [[random.randint(0,1) for i in range(0, 10)] for x in range(0, 10)]
-
-# 0 -> empty, 1 -> soda can, 2 -> wall
-# N-S-W-E-C  -> (00100)_3 -> 9
-# 0 -> do nothing, 1 -> go left, 2 -> go right, 3 -> go up, 4 -> go down
-# 5 -> pick up, 6 -> go random
-
-# testing
-# b = generate_board()
-# x, y = 0, 0
-
 def fitness(ind):
   avg_f = 0  # average fitness
   for a1 in range(0, 200):
