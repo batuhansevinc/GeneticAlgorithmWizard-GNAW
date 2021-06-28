@@ -1,6 +1,5 @@
 import random
-def generate_individual():
-  return [random.randint(0,6) for i in range(0, 243)]
+
 
 def fitness(ind):
   avg_f = 0  # average fitness
