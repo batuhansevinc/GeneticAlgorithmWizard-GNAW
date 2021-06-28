@@ -2,6 +2,7 @@
 
 Hi! We are engineering applicants Eyup Batuhan Sevinc and  Efe Berk Dinc. We are studying Sofware/Computer Engineering at Izmir University of Economics. Genetic Algorithm Project is our final project. In this project we are making a program that will make genetic algorithm calculations easier.
 
+!["Program"](https://i.hizliresim.com/4c7j4uc.png)
 
 # Abstract
 
