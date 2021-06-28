@@ -50,11 +50,9 @@ class Stream(QtCore.QObject):
 class Highlighter(QSyntaxHighlighter):
     def __init__(self, parent=None):
         super(Highlighter, self).__init__(parent)
-
         keywordFormat = QTextCharFormat()
         keywordFormat.setForeground(Qt.darkBlue)
         keywordFormat.setFontWeight(QFont.Bold)
-
         keywordPatterns = ["\\bchar\\b", "\\bclass\\b", "\\bconst\\b",
                 "\\bdouble\\b", "\\benum\\b", "\\bexplicit\\b", "\\bfriend\\b",
                 "\\binline\\b", "\\bint\\b", "\\blong\\b", "\\bnamespace\\b",
@@ -64,34 +62,27 @@ class Highlighter(QSyntaxHighlighter):
                 "\\btemplate\\b", "\\btypedef\\b", "\\btypename\\b",
                 "\\bunion\\b", "\\bunsigned\\b", "\\bvirtual\\b", "\\bvoid\\b",
                 "\\bvolatile\\b"]
-
         self.highlightingRules = [(QRegExp(pattern), keywordFormat)
                 for pattern in keywordPatterns]
-
         classFormat = QTextCharFormat()
         classFormat.setFontWeight(QFont.Bold)
         classFormat.setForeground(Qt.darkMagenta)
         self.highlightingRules.append((QRegExp("\\bQ[A-Za-z]+\\b"),
                 classFormat))
-
         singleLineCommentFormat = QTextCharFormat()
         singleLineCommentFormat.setForeground(Qt.red)
         self.highlightingRules.append((QRegExp("//[^\n]*"),
                 singleLineCommentFormat))
-
         self.multiLineCommentFormat = QTextCharFormat()
         self.multiLineCommentFormat.setForeground(Qt.red)
-
         quotationFormat = QTextCharFormat()
         quotationFormat.setForeground(Qt.darkGreen)
         self.highlightingRules.append((QRegExp("\".*\""), quotationFormat))
-
         functionFormat = QTextCharFormat()
         functionFormat.setFontItalic(True)
         functionFormat.setForeground(Qt.blue)
         self.highlightingRules.append((QRegExp("\\b[A-Za-z0-9_]+(?=\\()"),
                 functionFormat))
-
         self.commentStartExpression = QRegExp("/\\*")
         self.commentEndExpression = QRegExp("\\*/")
 
@@ -103,22 +94,17 @@ class Highlighter(QSyntaxHighlighter):
                 length = expression.matchedLength()
                 self.setFormat(index, length, format)
                 index = expression.indexIn(text, index + length)
-
         self.setCurrentBlockState(0)
-
         startIndex = 0
         if self.previousBlockState() != 1:
             startIndex = self.commentStartExpression.indexIn(text)
-
         while startIndex >= 0:
             endIndex = self.commentEndExpression.indexIn(text, startIndex)
-
             if endIndex == -1:
                 self.setCurrentBlockState(1)
                 commentLength = len(text) - startIndex
             else:
                 commentLength = endIndex - startIndex + self.commentEndExpression.matchedLength()
-
             self.setFormat(startIndex, commentLength,
                     self.multiLineCommentFormat)
             startIndex = self.commentStartExpression.indexIn(text,
@@ -158,6 +144,7 @@ if __name__ == '__main__':
         self.ui.radioButton_3.clicked.connect(self.uniformcross)
         self.ui.pushButton_3.clicked.connect(self.display_text)
         self.ui.pushButton_5.clicked.connect(self.display_text2)
+        self.ui.pushButton_6.clicked.connect(self.clear_text)
         self.ui.radioButton_5.clicked.connect(self.randomsel)
         self.ui.radioButton_4.clicked.connect(self.tournamentsel)
         self.ui.radioButton_6.clicked.connect(self.ranksel)
@@ -195,11 +182,6 @@ if __name__ == '__main__':
             bool1 = True
 
             return bool1
-
-
-
-
-
 
     def changeFitlbl(self):
         global bool
@@ -326,6 +308,9 @@ if __name__ == '__main__':
     def display_text2(self):
         with open('generate_Ind.py', 'r') as f:
                 self.ui.lineEdit_9.setPlainText(f.read())
+
+    def clear_text(self):
+        self.ui.textBrowser_2.clear()
 
     def message(self, s):
         self.ui.textBrowser_2.appendPlainText(s)
