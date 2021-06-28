@@ -1,6 +1,5 @@
 import random
 
-
 def fitness(ind):
   avg_f = 0  # average fitness
   for a1 in range(0, 200):

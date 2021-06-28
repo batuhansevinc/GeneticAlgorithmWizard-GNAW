@@ -1,6 +1,8 @@
 import functools
 import time
 import random
+from PyQt5.QtCore import QFile, QRegExp, Qt
+from PyQt5.QtGui import QFont, QSyntaxHighlighter, QTextCharFormat
 from PyQt5.QtWidgets import *
 from statistics import mean
 from PyQt5 import (QtCore)
@@ -8,10 +10,11 @@ from PyQt5 import QtGui
 from concurrent import futures
 from designer_python import Ui_MainWindow
 from fitness import *
+from generate_Ind import *
 import sys
 
-
-val = 1
+bool = True
+bool1 = True
 thread_pool_executor = futures.ThreadPoolExecutor(max_workers=1)
 
 def tk_after(target):
@@ -44,6 +47,83 @@ class Stream(QtCore.QObject):
     def write(self, text):
         self.newText.emit(str(text))
 
+class Highlighter(QSyntaxHighlighter):
+    def __init__(self, parent=None):
+        super(Highlighter, self).__init__(parent)
+
+        keywordFormat = QTextCharFormat()
+        keywordFormat.setForeground(Qt.darkBlue)
+        keywordFormat.setFontWeight(QFont.Bold)
+
+        keywordPatterns = ["\\bchar\\b", "\\bclass\\b", "\\bconst\\b",
+                "\\bdouble\\b", "\\benum\\b", "\\bexplicit\\b", "\\bfriend\\b",
+                "\\binline\\b", "\\bint\\b", "\\blong\\b", "\\bnamespace\\b",
+                "\\boperator\\b", "\\bprivate\\b", "\\bprotected\\b",
+                "\\bpublic\\b", "\\bshort\\b", "\\bsignals\\b", "\\bsigned\\b",
+                "\\bslots\\b", "\\bstatic\\b", "\\bstruct\\b",
+                "\\btemplate\\b", "\\btypedef\\b", "\\btypename\\b",
+                "\\bunion\\b", "\\bunsigned\\b", "\\bvirtual\\b", "\\bvoid\\b",
+                "\\bvolatile\\b"]
+
+        self.highlightingRules = [(QRegExp(pattern), keywordFormat)
+                for pattern in keywordPatterns]
+
+        classFormat = QTextCharFormat()
+        classFormat.setFontWeight(QFont.Bold)
+        classFormat.setForeground(Qt.darkMagenta)
+        self.highlightingRules.append((QRegExp("\\bQ[A-Za-z]+\\b"),
+                classFormat))
+
+        singleLineCommentFormat = QTextCharFormat()
+        singleLineCommentFormat.setForeground(Qt.red)
+        self.highlightingRules.append((QRegExp("//[^\n]*"),
+                singleLineCommentFormat))
+
+        self.multiLineCommentFormat = QTextCharFormat()
+        self.multiLineCommentFormat.setForeground(Qt.red)
+
+        quotationFormat = QTextCharFormat()
+        quotationFormat.setForeground(Qt.darkGreen)
+        self.highlightingRules.append((QRegExp("\".*\""), quotationFormat))
+
+        functionFormat = QTextCharFormat()
+        functionFormat.setFontItalic(True)
+        functionFormat.setForeground(Qt.blue)
+        self.highlightingRules.append((QRegExp("\\b[A-Za-z0-9_]+(?=\\()"),
+                functionFormat))
+
+        self.commentStartExpression = QRegExp("/\\*")
+        self.commentEndExpression = QRegExp("\\*/")
+
+    def highlightBlock(self, text):
+        for pattern, format in self.highlightingRules:
+            expression = QRegExp(pattern)
+            index = expression.indexIn(text)
+            while index >= 0:
+                length = expression.matchedLength()
+                self.setFormat(index, length, format)
+                index = expression.indexIn(text, index + length)
+
+        self.setCurrentBlockState(0)
+
+        startIndex = 0
+        if self.previousBlockState() != 1:
+            startIndex = self.commentStartExpression.indexIn(text)
+
+        while startIndex >= 0:
+            endIndex = self.commentEndExpression.indexIn(text, startIndex)
+
+            if endIndex == -1:
+                self.setCurrentBlockState(1)
+                commentLength = len(text) - startIndex
+            else:
+                commentLength = endIndex - startIndex + self.commentEndExpression.matchedLength()
+
+            self.setFormat(startIndex, commentLength,
+                    self.multiLineCommentFormat)
+            startIndex = self.commentStartExpression.indexIn(text,
+                    startIndex + commentLength);
+
 if __name__ == '__main__':
  class gui(QMainWindow, QtCore.QObject):
 
@@ -72,11 +152,12 @@ if __name__ == '__main__':
         self.c1 = list()
         self.ui.pushButton.clicked.connect(self.save_text)
         sys.stdout = Stream(newText=self.onUpdateText)
-        self.ui.pushButton_2.clicked.connect(self.start_program)
+        self.ui.pushButton_2.clicked.connect(self.changestart)
         self.ui.radioButton.clicked.connect(self.singlecross)
         self.ui.radioButton_2.clicked.connect(self.multicross)
         self.ui.radioButton_3.clicked.connect(self.uniformcross)
         self.ui.pushButton_3.clicked.connect(self.display_text)
+        self.ui.pushButton_5.clicked.connect(self.display_text2)
         self.ui.radioButton_5.clicked.connect(self.randomsel)
         self.ui.radioButton_4.clicked.connect(self.tournamentsel)
         self.ui.radioButton_6.clicked.connect(self.ranksel)
@@ -86,30 +167,52 @@ if __name__ == '__main__':
         self.ui.radioButton.setChecked(True)
         self.ui.radioButton_5.setChecked(True)
         self.display_text()
+        self.display_text2()
         self.ui.lineEdit_3.setText("0")
         self.thread = QtCore.QThread(self)
         self.moveToThread(self.thread)
         self.finished.connect(self.handleFinished)
         self.thread.started.connect(self.function)
         self.thansign = '0'
+        self.setupEditor
+        self.ui.lineEdit_9.setStyleSheet(
+            "background: #2b2b2b;\n"
+            "color: #afb1b3"                                         )
+        self.ui.lineEdit_5.setStyleSheet(
+            "background: #2b2b2b;\n"
+            "color: #afb1b3")
+        self.ui.textBrowser_2.setStyleSheet(
+            "background: #2b2b2b;\n"
+            "color: #afb1b3")
+
+    def changestart(self):
+        global bool1
+        if bool1 == True:
+            self.start_program()
+            bool1=False
+            return bool1
+        if bool1 == False:
+            bool1 = True
+
+            return bool1
+
+
+
+
+
 
     def changeFitlbl(self):
-
-        global val
-        val += 1
-
-        if val % 2 == 0:
+        global bool
+        if bool == True:
             self.ui.pushButton_4.setText("<")
             self.thansign = '1'
-            return val
-
-
-        if val % 2 == 1:
+            bool=False
+            return bool
+        if bool == False:
             self.ui.pushButton_4.setText(">")
             self.thansign = '0'
-            return val
-
-
+            bool=True
+            return bool
 
     def mutation(self, ind, m):
         for k, v in enumerate(ind):
@@ -143,7 +246,7 @@ if __name__ == '__main__':
     def crossover_uniform(self, ind1, ind2):
         size = min(len(ind1), len(ind2))
         for i in range(size):
-            if random.random() < random.random():
+            if random.random() < 0.5:
                 ind1[i], ind2[i] = ind2[i], ind1[i]
         return ind1, ind2
 
@@ -160,9 +263,6 @@ if __name__ == '__main__':
 
     def selRoulette(self, pop):
         return random.choices(range(0, len(pop)), k=16)
-
-    def generate_individual(self):
-        return [random.randint(0, 6) for i in range(0, 243)]
 
     def singlecross(self):
         self.crossover_type = '0'
@@ -202,16 +302,36 @@ if __name__ == '__main__':
             f.write(my_text)
             self.ui.label_9.setText("Last saved on: "+ time.strftime('%X'))
 
+        with open('generate_Ind.py','w') as f:
+            my_text = self.ui.lineEdit_9.toPlainText()
+            f.write(my_text)
+
+    def newFile(self):
+        self.editor.clear()
+
+    def setupEditor(self):
+        font = QFont()
+        font.setFamily('Courier')
+        font.setFixedPitch(True)
+        font.setPointSize(10)
+
+        self.editor = QPlainTextEdit()
+        self.editor.setFont(font)
+        self.highlighter = Highlighter(self.editor.document())
 
     def display_text(self):
-        with open('fitness.py','r') as f:
-            self.ui.lineEdit_5.setPlainText(f.read())
+        with open('fitness.py', 'r') as f:
+                self.ui.lineEdit_5.setPlainText(f.read())
+
+    def display_text2(self):
+        with open('generate_Ind.py', 'r') as f:
+                self.ui.lineEdit_9.setPlainText(f.read())
 
     def message(self, s):
         self.ui.textBrowser_2.appendPlainText(s)
 
     def start_program(self):
-        self.ui.pushButton_2.setEnabled(False)
+        self.ui.pushButton_2.setText("Stop")
         self.ui.radioButton.setEnabled(False)
         self.ui.radioButton_2.setEnabled(False)
         self.ui.radioButton_3.setEnabled(False)
@@ -219,10 +339,12 @@ if __name__ == '__main__':
         self.ui.radioButton_5.setEnabled(False)
         self.ui.radioButton_6.setEnabled(False)
         self.ui.radioButton_7.setEnabled(False)
+        self.ui.lineEdit_5.setEnabled(False)
         self.thread.start()
         print("Process Started...")
 
     def handleFinished(self):
+        global bool1
         self.thread.quit()
         self.thread.wait()
         self.ui.pushButton_2.setEnabled(True)
@@ -233,10 +355,14 @@ if __name__ == '__main__':
         self.ui.radioButton_5.setEnabled(True)
         self.ui.radioButton_6.setEnabled(True)
         self.ui.radioButton_7.setEnabled(True)
+        self.ui.lineEdit_5.setEnabled(True)
+        self.ui.pushButton_2.setText("Start")
+        bool1 = True
         print("Process Finished.")
 
     @submit_to_pool_executor(thread_pool_executor)
     def function(self):
+        global bool1
         self.NumOfGen = int(self.ui.lineEdit_2.text())
         self.NumOfPop = int(self.ui.lineEdit.text())
         self.mutation_val = float(self.ui.lineEdit_4.text()) / 100
@@ -247,7 +373,7 @@ if __name__ == '__main__':
 
         # init pop
         for i in range(NumOfPop):
-            pop.append(self.generate_individual())
+            pop.append(generate_individual())
         # genetic algorithm loop
         for i in range(NumOfGen):
             f_vals = list()  # a place for fitness values of each individual
@@ -279,7 +405,9 @@ if __name__ == '__main__':
             if bfitpop <= float(self.ui.lineEdit_3.text()) and thansign == '1' :
              print("Succesfully reached the fitness limit  :  " + str(bfitpop))
              break
-
+            if bool1 == True:
+             print("STOPPED")
+             break
 
         self.finished.emit()
 
