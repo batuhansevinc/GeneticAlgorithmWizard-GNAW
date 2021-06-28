@@ -3,6 +3,10 @@
 Hi! We are engineering applicants Eyup Batuhan Sevinc and  Efe Berk Dinc. We are studying Sofware/Computer Engineering at Izmir University of Economics. Genetic Algorithm Project is our final project. In this project we are making a program that will make genetic algorithm calculations easier.
 
 
+!["Program"](https://i.hizliresim.com/4c7j4uc.png)
+
+
+
 # Abstract
 
 Genetic algorithms is a wide subject to study. Depending on the size and the complexity of a problem, they might take a long time to implement, run and get results. Also, programmers can’t always reach a reliable, open-source GA testing tool and test their own GAs with their own parameters. The following project report focuses on GAs, examining their working principles and the development of a GA testing tool with GUI (Graphic User Interface) which will enable the users to test their GAs with the extra implementation effort and time kept as minimal as possible. Different selection, crossover and mutation methods are studied both in theory and in practice, provided with their relevant tables and codes.
