@@ -2,11 +2,16 @@
 
 Hi! We are engineering applicants Eyup Batuhan Sevinc and  Efe Berk Dinc. We are studying Sofware/Computer Engineering at Izmir University of Economics. Genetic Algorithm Project is our final project. In this project we are making a program that will make genetic algorithm calculations easier.
 
+
 !["Program"](https://i.hizliresim.com/4c7j4uc.png)
+
+!["Program"](https://i.hizliresim.com/nitjcuv.png)
+
+
 
 # Abstract
 
-Genetic algorithms is a wide subject to study. Depending on the size and the complexity of a problem, they might take a long time to implement, run and get results. Also, programmers can’t always reach a reliable, open-source GA testing tool and test their own GAs with their own parameters. The following project report focuses on GAs, examining their working principles and the development of a GA testing tool with GUI (Graphic User Interface) which will enable the users to test their GAs with the extra implementation effort and time kept as minimal as possible. Different selection, crossover and mutation methods are studied both in theory and in practice, provided with their relevant tables and codes.
+Nowadays, there are many complex and difficult problems to solve by people and computers. People tend to use powerful and expensive computers to solve these problems. In addition, it takes too much time to solve complex problems. To eliminate the need of powerful and expensive computers and reduce the time to solve problems, people started to use Genetic Algorithms (GAs). GAs are often used to develop high-quality solutions, and they reflect the natural selection process, which selects the fittest individuals for reproduction in order to produce offspring for the next generation. But they also have their downsides such as the formulation of important parameters for example rate of mutation, crossover and the selection criteria of the new population should be carried out carefully, any inappropriate choice will make it difficult for the algorithm to converge or it will simply produce meaningless results. Genetic algorithms is a wide subject to study. Depending on the size and the complexity of a  problem, they might take a long time to implement, run and get results. Thus we’re trying to make things a little bit easier. The following project report focuses on GAs, examining their working principles and  the development of a GA testing tool with GUI (Graphic User Interface) which will enable the  users to test their GAs with the extra implementation effort and time kept as minimal as possible. Different selection, crossover and mutation methods are studied both in theory and in practice,  provided with their relevant tables and codes. 
 
 ## Introduction
 
@@ -31,11 +36,11 @@ The principle mentioned above is the “survival of the strongest (the fittest) 
 
 ## Problem Statement
 
-GAs require some time to write, especially the complex ones, and the subject in general might be exhausting for a beginner. There are too many options to choose from regarding the selection and crossover functions, and it is time consuming to code and implement all of them to use. Some options might be overlooked, missed entirely.
+GAs require some time to formulate a fitness function, especially the complex ones, and the subject in general might be exhausting for a beginner. There are too many options to choose from regarding the selection and crossover functions, and it is time consuming to code and implement all of them to use. Some options might be overlooked, missed entirely.
 
 ## Motivation
 
-Developers and coders should always look for easier ways to get the job done. Implementing each and every thing when they can simply use a GUI tool would be a bad move. The GA GUI tool that we are developing will include all functions (selection, crossover, hyperparameter selections and other types) and they will be presented to the user so they can benefit from it. It is all up to the user and their own preference for their GA. This way, anyone who has a GA to implement, test and solve, will be able to save so much time.
+Developers and coders should always look for easier ways to get the job done. Implementing each  and every thing when they can simply use a GUI tool would be a bad move. The GA GUI tool that  we are developing will include all functions (selection, crossover, hyperparameter selections and  other types) and they will be presented to the user so they can benefit from it. It is all up to the user  and their own preference for their GA. This way, anyone who has a GA to implement, test and  solve, will be able to save so much time.
 
 ## Literature Review
 
@@ -63,7 +68,7 @@ Hinterding et al. worked on numeric functions and their self-adaptive GAs. They 
 
 # Methodology
 
-In our project, we used two programming languages; Python and Java. We started off with Java, explored the various functions and methods, then moved to Python and decided to continue with it (The relevant codes and schemes are provided in the Appendix section of the report).
+In our project, we are planning to create a wizard that handles complex problems. In this wizard, developers can easily choose genetic algorithm parameters such as ”Selection Type; Random, Tournament, Rank, Roulette”, “Crossover Type; Single-Point, Multi-Point, Uniform”, ”Mutation Rate”, “Population Size”, “Generation Limit”, on GUI and then the program will execute the code and show the results in “Output” tab.Genetic Algorithm Wizard, designed to make it easier for game developers life and work. The tool has a simple Graphical user interface. It looks like a regular program but this is not all. We used the Python programming language. We started off with Java,  explored the various functions and methods, then moved to Python and decided to continue with it. Also, targeted platforms will be Windows and MacOS, so other operating systems won’t have support. However, our tool won’t have features that are exclusive to one platform. However, our tool won’t have features that are exclusive to one platform. We have some diagrams about our tool’s operating logic [32], [33].Diagrams shows how our tool is working and give information about working processes.
 
 #### Java & Python Platforms
  The Java programming language is harder to implement, compared to Python. We tried our hand in arrays, array lists and other functions such as crossover and selection functions. Each GA is specific to its own, therefore despite the similarities between those algorithms and problems, one would have to implement most things from scratch. Python offers an easier approach especially in genetic algorithms. We played around with lists, showing everything much more clearly and observed that this platform is much more effective and fast compared to Java. It also made everything easier for us with its libraries.
@@ -216,3 +221,107 @@ During the fall term, we tried to work with what we had without straying away fr
 [15] Figure 3.2.1.1 http://www.edc.ncl.ac.uk/highlight/rhjanuary2007g02.php  [16] Figure 3.2.1.2 https://www.slideshare.net/riyadparvez/selection-in-evolutionary-algorithm  (pg 8 of 55)
 
 [17] Figure 3.2.2.1 to Figure 3.2.3 https://core.ac.uk/download/pdf/159313423.pdf  [18] (Appendix section) Courtesy of our supervisor Kaya OĞUZ, Robby the Robot’s Genetic Algorithm
+
+[18] (Appendix section) Courtesy of our supervisor Kaya OĞUZ, Robby the Robot’s Genetic Algorithm
+
+[19] (Appendix section) Courtesy of our supervisor Kaya OĞUZ, Robby the Robot’s Genetic Algorithm
+
+[20] (Appendix section) Courtesy of our supervisor Kaya OĞUZ, Robby the Robot’s Genetic Algorithm
+
+[21] (Appendix section) Courtesy of our supervisor Kaya OĞUZ, Robby the Robot’s Genetic Algorithm
+
+[23] (Appendix section) Courtesy of our supervisor Kaya OĞUZ, Robby the Robot’s Genetic Algorithm
+
+[24] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s source code
+
+[25] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s source code
+
+[26] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s source code
+
+[27] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s source code
+
+[28] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s source code
+
+[29] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s GUI
+
+[30] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s GUI
+
+[31] (Appendix section)  GeNetic Algorithm Wizard -> GNaW’s user guide
+
+[32] (Appendix section)  GeNetic Algorithm Wizard -> GNaW’s diagram
+
+[33] (Appendix section)  GeNetic Algorithm Wizard -> GNaW’s diagram
+
+
+# 6. Appendix
+6.1 Java Platform
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-NSKiWzFnveQii_yIKrZ9HMjlbFhXyup0VS6Iu3gAfCyfQUpy3QHYzlbiuL_YRcPoq_-AxbkcCJmzE9JFfh41RXhEl1453CSxhXK2o)    
+Figure 6.1.1 Chromosome Creation[18]
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-M-ahzP9sV5NBDAZlrxdO6PMsNmWYccyX7QdsOKpgf92yav4vX89yCprug0xk0lAT9q7PesKEED76fFaciqgSK3S4xRWTRoPmFBDvg) 
+
+Figure 6.1.2 Population Creation with its constructor[19]
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-OBCpFilBwdgx-jLk3yEoapj6jve8CWm4at3kOHVozCCOGrwvnjDWpYiekJ87whKFiAnnhqBg7FmNYkw3l5qXltkN2aBa5B1rFC2bw) 
+
+Figure 6.1.3 An example of operation installations [20]
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-PIjOFo3XxWRxSAE0a72Gxr6JRYWBDRHcRUp_BYF9mFYj8A_ova2-Y2y9ex1zPFM2I4PrKSXCNqlKTqlPha0gIfsSbJ40K6q2cuTC4)
+
+Figure 6.1.4 An example of printing a whole population[21]
+
+
+6.2 Python Platform
+
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-Nu3Ie4MJl0fr51LOjSb7GD4_BIGWStsY7XiGRSytsaJ4dGBEMtRoWBmLe3u0kW4aEoMXnDLOcDJpsDj9IxFeD6w5reSPVJ1NB_sOg)
+
+Figure 6.2.1 Fitness calculation [22]
+
+![](https://lh6.googleusercontent.com/NkrNgpRbH_8Co6hyCSGvMYqsPTv_GotDnxLwkr7Bj3tmLv5HCpTKq83Ekq4uqyF1cca6UiQiuhQFTxgFE8amjdt4OZvgSZ0-cJFuGKtWLnMDNFnnshcD3ji0xcSll5obwFA8uKis)
+
+Figure 6.2.2 Fitness calculation (continued) [23]
+
+![](https://lh3.googleusercontent.com/bDlCtBHg7ZKNJe8aHEqvXero9zcuxofS4uziUbPwDS5FZqEUZo4VsmjctIToF_9Lw0qIlCdc1LRgRTqIMrL8KO05L6-cQPOqoU50Xd9UdHwv7vN9TjCGn_x5WT77bot6ehgZKAhv)
+
+Figure 6.2.3 Mutation operation [24]
+
+![](https://lh6.googleusercontent.com/SpwmhzZjKwrDRm5hYLb59frYUonnxucHuRpD7DQVYBnF090qpAsYsU9C8Jw_bQMiSICOIxFlrLKkcFUsn9WM2b9ZldncxeWusvTf49yQkUls6RvszuDF6t6mot6gf8EDdty8Oxil)
+
+Figure 6.2.4 Single point crossover operation [25]
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-OxHsLjBVB4NBPNFX70qJGbaJigulrZt7eyNUH8oL2u12WWGwHKDRJ967eaxKBfx3QH4j3Skm6or7xnMkOhejfffB7vC1_olq8_b1c)
+
+Figure 6.2.5 Multi point crossover operation [26]
+
+![](https://lh4.googleusercontent.com/vu3vYEaJEcRZlISRCCNpB--8VjrewdZCkAFL8hRev2QNKRaUtS4Id2Vd82Y9b5Nwn3gamAgTKbOeQSpfY-ujtttnak0naTXoLLbZ-Pt6WXcybil0GGWGLmm-z6Vt55gDUoruv5vT)
+
+Figure 6.2.6 Uniform crossover operation [27]
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-PvVBgKpRfhRWy75F6E2JC3mrMng7KV1Yy-nC4Iw28IeD8ZulklMqkv2Ff3HDk8mYFPq08EMxS_LYDVj1clImkN732itvLfWb9EIAQ)
+
+Figure 6.2.7 Initializing the children, applying crossover and mutation and creating the new population [28]
+
+![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-NNEPEzMrNrAIcHhCzowaYBTz-OkWUj3aWYTKVr-Fi0j9opNzhaMEFzrBvGXw-fGBy2IT6E9dFPfcb50YMlPt06TVJkwYGxXIMAc8c)
+
+Figure 6.2.8 Fitness code screen in GUI [29]
+
+![](https://lh3.googleusercontent.com/VI9NayiFJAFp5PFNbsA11w-eVPtZNoVyTedjNwQnncaCSvrJBUZl6lxMbGxfWgqgMkaduqjPxcGme4LTI2iZbuTfOOKvwWUkmS5XDCGFadL5NIxZysWOkcy6zQ6a9e5KcDZqaqnY)
+
+Figure 6.2.9 Generate individual screen in GUI  [30]
+
+![](https://lh3.googleusercontent.com/eO5ujy528oHYd0Hmogv5yasEEFjH2W2IkgNt_QaX-5SYjXD6I330859YyIGkojvr9ytmS9XGzEKQeZ-SmKXCiH7yRVeeVc16JogxViRuEuoM69NkCTvwEp_jGbFtbpnQoekhiZuC)
+
+Figure 6.2.10 User guide  [31]
+
+![](https://lh5.googleusercontent.com/suFaQqHKrGAbX2fCPpClzYTaAyzdSlH0WKI1axS6MrK-MX6w48CWJiJr4APczzFiPFQfITTVdW7GCaFPwr4v5swrF7x6mgawOuA5XZZ1odk9RZ8898d9TnH0O8-xtNRCADA1lmiT)
+
+Figure 6.2.11 Program activity diagram  [32]
+
+![](https://lh4.googleusercontent.com/OLNgVXl70Iaw6ZDS7Vv6Yidt9iuslqryDtxWTMRDLV3rkTuAByUG5jA2RAs1zmjd4NltJSYX7KY42_8voYTRS4g0-Aerx4Won1jlxazREPB1jBSSWtww13HVF8ULkvtoMgLr_058)
+
+Figure 6.2.12 Fitness code activity diagram  [33]
+
+
+
