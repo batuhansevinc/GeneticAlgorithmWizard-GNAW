@@ -246,9 +246,12 @@ During the fall term, we tried to work with what we had without straying away fr
 
 [30] (Appendix section)  From GeNetic Algorithm Wizard -> GNaW’s GUI
 
-[31] (Appendix section)  GeNetic Algorithm Wizard -> GNaW’s diagram
+[31] (Appendix section)  GeNetic Algorithm Wizard -> GNaW’s user guide
 
 [32] (Appendix section)  GeNetic Algorithm Wizard -> GNaW’s diagram
+
+[33] (Appendix section)  GeNetic Algorithm Wizard -> GNaW’s diagram
+
 
 # 6. Appendix
 6.1 Java Platform
